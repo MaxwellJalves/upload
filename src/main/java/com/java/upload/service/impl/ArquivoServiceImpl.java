@@ -9,13 +9,15 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 @Service
 @AllArgsConstructor
+
 public class ArquivoServiceImpl implements ArquivoService {
 
-    private final String DIRETORIO = "/arquivos/upload";
+    private final String DIRETORIO = "E:/repo/";
 
     private ArquivosRepository arquivosRepository;
 
@@ -25,10 +27,11 @@ public class ArquivoServiceImpl implements ArquivoService {
         try {
 
             var obterBytes = file.getBytes();
-            var path = Paths.get(DIRETORIO.concat(file.getOriginalFilename()));
+            Path path = Paths.get(DIRETORIO.concat(file.getOriginalFilename()));
             Files.write(path, obterBytes);
 
         } catch (IOException e) {
+            System.err.println(e);
             throw new IllegalArgumentException("Não foi possivel salvar o arquivo \t :" + file.getOriginalFilename());
         }
 
