@@ -20,7 +20,7 @@ public class Arquivos {
 
     @Id
     @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid4")
+    @GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
     @JsonProperty("Identificador")
     private String id;
 
