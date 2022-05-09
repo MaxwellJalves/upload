@@ -16,6 +16,15 @@ public class EstudoBase64 {
         var decodificar = Base64.getDecoder().decode(encodeToString.getBytes(StandardCharsets.UTF_8));
         System.out.format("Decodificando bytes para String : UTF_8 :: %s ",new String(decodificar));
 
+
+        String originalUrl = "https://www.google.co.nz/?gfe_rd=cr&ei=dzbFV&gws_rd=ssl#q=java";
+        String encodedUrl = Base64.getUrlEncoder().encodeToString(originalUrl.getBytes());
+
+
+
+
+        System.out.println(encodedUrl);
+
     }
 
 }
